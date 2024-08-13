@@ -1,0 +1,26 @@
+# version: '2'
+# services:
+#   angular:
+#     tty: true
+#     image: 'angular8:latest'
+#     ports:
+#       - 4201:4200
+#     volumes:
+#       - ./:/app
+#     command: sh -c 'ng serve --host=0.0.0.0'
+
+#/path/on/host:/path/in/container
+
+version: '3.6'
+services:
+    promoarco:
+        image: angular:16
+        working_dir: /app
+        ports:
+            - 4200:4200
+        volumes:
+            - ./:/app:delegated
+        #command: [ "ng", "new", "promoarco" ]
+        #command: [ "npm", "i"]
+        command: [ "ng", "serve" ]
+        #command: sh -c 'npm start'
